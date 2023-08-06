@@ -1,23 +1,37 @@
-// Add all the imports here 
-// Add all the routes here
-
-import { useState } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
-import './App.css'
+// Add all the imports here // Add all the routes here
+// import { useState } from 'react'
+import './App'
+import { Route, Routes } from "react-router-dom"; 
+import HomePage from "./pages/HomePage"; 
+import SignupPage from "./pages/SignupPage"; 
+import Login from "./pages/LoginPage"; 
+/*import Promodoro from "./pages/PromodoroPage"; */
+import Journal from "./pages/JournalPage"; 
+import Statistics from "./pages/StatisticPage"; 
+import Tasks from "./pages/ToDoPage";
+import EnergyLevel from "./pages/EnergyLevelPage"; 
+/*import Error from "./pages/ErrorPage"; */
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+<routes>
+  <route path="/" element ={<HomePage />} />
+  <route path="/signup" element ={<SignupPage />} />
+  <route path="/login" element ={<LoginPage />} />
+  <route path="/journal" element ={<JournalPage />} />
+  <route path="/statistics" element ={<StatisticPage />} />
+  <route path="/energylevel" element ={<EnergyLevelPage />} />
+  <route path="/sleepquality" element = {<SleepQualityPage />} />
+  <route path="/todolist" element ={<TodoPage />} />
+  <route path="*" element ={<Error />} />
+</routes>
+    </>
+  );
+}
+export default App;
+
+/*
       </div>
       <h1>Vite + React</h1>
       <div className="card">
@@ -34,5 +48,5 @@ function App() {
     </>
   )
 }
-
 export default App
+*/
