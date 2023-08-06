@@ -11,6 +11,7 @@ import Statistics from "./pages/StatisticPage";
 import Tasks from "./pages/ToDoPage";
 import EnergyLevel from "./pages/EnergyLevelPage"; 
 /*import Error from "./pages/ErrorPage"; */
+/*import Navbar from "./components/Navbar"; */
 
 function App() {
   return (
