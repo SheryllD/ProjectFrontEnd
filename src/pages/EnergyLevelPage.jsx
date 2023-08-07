@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function EnergyLevelPage() {
+export function EnergyLevelPage() {
   return (
     <div>EnergyLevelPage</div>
   )
 }
+
+export default EnergyLevelPage; 

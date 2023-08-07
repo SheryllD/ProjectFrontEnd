@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function JournalPage() {
+export function JournalPage() {
   return (
     <div>JournalPage</div>
   )
 }
+
+export default JournalPage; 

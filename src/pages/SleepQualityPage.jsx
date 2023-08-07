@@ -1,7 +1,10 @@
 import React from 'react'
 
-export default function SleepQualityPage() {
+export const SleepQualityPage = () => {
   return (
     <div>SleepQualityPage</div>
   )
+
 }
+
+export default SleepQualityPage; 

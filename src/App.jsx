@@ -26,8 +26,8 @@ function App() {
   <Route path="/journal" element ={<JournalPage />} />
   <Route path="/statistics" element ={<StatisticPage />} />
 {/*  <route path="/energylevel" element ={<EnergyLevelPage />} /> */}
-  <Route path="/sleepquality" element = {<SleepQualityPage />} />
-  <Route path="/todolist" element ={<ToDoPage />} />
+  <Route path="/sleepqualitypage" element = {<SleepQualityPage />} />
+  <Route path="/todopage" element ={<ToDoPage />} />
   <Route path="*" element ={<Error />} />
 </Routes>
     </>

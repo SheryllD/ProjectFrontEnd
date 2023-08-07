@@ -1,7 +1,8 @@
 import React from 'react'
 
-export default function PromodoroPage() {
+export function PromodoroPage() {
   return (
     <div>PromodoroPage</div>
   )
 }
+export default PromodoroPage; 
