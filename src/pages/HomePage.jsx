@@ -1,12 +1,37 @@
 import React from "react"; 
 import "../App.css"; 
-import {Link} from "react-router-dom"; 
+import {Link, useNavigate} from "react-router-dom"; 
 
-function HomePage() {
+export const HomePage = (props) => {
   return (
     <>
     <div className="HomepageContainer">
-      <p>Hello</p>
+      <h1>Welcome user</h1>
+      <div>
+        <Link to="/todopage">
+        <button> Tasks </button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/journalpage">
+        <button> Journal </button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/energylevelpage">
+        <button> Energy Level </button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/sleepqualitypage">
+        <button> Sleep Quality </button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/statisticpage">
+        <button> Dashboard </button>
+        </Link>
+      </div>
     </div>
     </>
   )

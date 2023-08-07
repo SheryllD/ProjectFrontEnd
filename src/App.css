@@ -1,3 +1,70 @@
+body {
+  text-align: center; 
+  display: flex; 
+  min-height: 100vh;
+  justify-content: center;
+  background-color: rgb(255, 250, 250);
+}
+
+.login-form{
+  text-align: center;
+  flex-direction: column;
+}
+
+.login-container, .register-container {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: center;
+  padding: 0,25 rem 0; 
+}
+
+input {
+  margin: 0,5rem 0; 
+  text-align: left;
+}
+
+.button {
+  border: none; 
+  background-color: rgb(237, 231, 231);
+  padding: 20px
+  border-radius: 10px
+}
+
+.link-btn {
+  background-color: white;
+}
+
+.done-btn {
+  background-color: white;
+}
+/* 
+.App {
+  height:40vmin; 
+  pointer-events: none
+}
+
+.App-header {
+  background-color: #350170;
+  min-height:100vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: whitesmoke
+}
+
+.App-link {
+  color: #510296
+}
+
+
+
+
+/*
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -41,3 +108,4 @@
   color: #888;
 }
 
+*/

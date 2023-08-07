@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import './App'
 import { Route, Routes } from "react-router-dom"; 
 import HomePage from "./pages/HomePage"; 
-import RegisterPage from "./pages/RegisterPage"; 
+import RegisterPage from './pages/RegisterPage';
 import LoginPage from "./pages/LoginPage"; 
 import Promodoro from "./pages/PromodoroPage"; 
 import JournalPage from "./pages/JournalPage"; 
@@ -13,15 +13,14 @@ import EnergyLevelPage from "./pages/EnergyLevelPage";
 import Error from "./pages/ErrorPage"; 
 import Navbar from "./components/Navbar"; 
 import SleepQualityPage from './pages/SleepQualityPage';
-import './App.css'
-
+import './App.css'; 
 
 function App() {
   const [currentForm, setCurrentForm] = useState('login'); 
   return (
     <>
 <Routes>
-  <Route path="/" element ={<HomePage />} />
+  <Route path="/homepage" element ={<HomePage />} />
   <Route path="/registerpage" element ={<RegisterPage />} />
   <Route path="/loginpage" element ={<LoginPage />} />
   <Route path="/journal" element ={<JournalPage />} />
