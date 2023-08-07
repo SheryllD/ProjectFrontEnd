@@ -41,7 +41,11 @@ export const LoginPage = (props) => {
            onChange={(e) => setPassword(e.target.value)} />          
           <button type="submit">Log in</button>
            </form>
-           <button className="link-button" onClick={() => props.onFormSwitch('/registerpage')}>Don't have an account? Register here.</button> 
+           </div>
+           <div>
+           <Link to="/registerpage">
+           <button className="link-button"> Don't have an account? Register here.</button> 
+           </Link>
         </div>
         </>
     )
