@@ -1,9 +1,9 @@
 // Add all the imports here // Add all the routes here
-// import { useState } from 'react'
+import React, { useState } from 'react'
 import './App'
 import { Route, Routes } from "react-router-dom"; 
 import HomePage from "./pages/HomePage"; 
-import SignupPage from "./pages/SignupPage"; 
+import RegisterPage from "./pages/RegisterPage"; 
 import LoginPage from "./pages/LoginPage"; 
 import Promodoro from "./pages/PromodoroPage"; 
 import JournalPage from "./pages/JournalPage"; 
@@ -17,11 +17,12 @@ import './App.css'
 
 
 function App() {
+  const [currentForm, setCurrentForm] = useState('login'); 
   return (
     <>
 <Routes>
   <Route path="/" element ={<HomePage />} />
-  <Route path="/signup" element ={<SignupPage />} />
+  <Route path="/registerpage" element ={<RegisterPage />} />
   <Route path="/loginpage" element ={<LoginPage />} />
   <Route path="/journal" element ={<JournalPage />} />
   <Route path="/statistics" element ={<StatisticPage />} />

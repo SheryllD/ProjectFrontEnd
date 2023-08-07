@@ -2,11 +2,16 @@ import React, {useState} from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+const handleLoginSubmit = async (event) => {
+    event.preventDefault()
+
+}
+
 export const LoginPage = () => {
     const [email, setEmail] = useState(""); 
     const [password, setPassword] = useState(""); 
 
-    const handleSubmit = (event) => {
+    const handleLoginSubmit = (event) => {
         event.preventDefault()
         console.log(email)
     }
@@ -14,7 +19,7 @@ export const LoginPage = () => {
         <>
         <div className="login-container">
         <h1> Sign in </h1>
-             <form onSubmit={handleSubmit} className= "login-form">
+             <form onSubmit={handleLoginSubmit} className= "login-form">
                     <label> E-mail: </label>
                     <input
                     type="email" 
@@ -23,7 +28,7 @@ export const LoginPage = () => {
                     id="email" 
                     value={email}
                     onChange={(event) => {setEmail(event.taget.value)}}/>
-                
+
                 <label>Password:</label>
                 <input
                 type="password"
