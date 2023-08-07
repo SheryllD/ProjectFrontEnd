@@ -4,29 +4,32 @@ import './App'
 import { Route, Routes } from "react-router-dom"; 
 import HomePage from "./pages/HomePage"; 
 import SignupPage from "./pages/SignupPage"; 
-import Login from "./pages/LoginPage"; 
-/*import Promodoro from "./pages/PromodoroPage"; */
-import Journal from "./pages/JournalPage"; 
-import Statistics from "./pages/StatisticPage"; 
-import Tasks from "./pages/ToDoPage";
-import EnergyLevel from "./pages/EnergyLevelPage"; 
-/*import Error from "./pages/ErrorPage"; */
-/*import Navbar from "./components/Navbar"; */
+import LoginPage from "./pages/LoginPage"; 
+import Promodoro from "./pages/PromodoroPage"; 
+import JournalPage from "./pages/JournalPage"; 
+import StatisticPage from "./pages/StatisticPage"; 
+import ToDoPage from "./pages/ToDoPage";
+import EnergyLevelPage from "./pages/EnergyLevelPage"; 
+import Error from "./pages/ErrorPage"; 
+import Navbar from "./components/Navbar"; 
+import SleepQualityPage from './pages/SleepQualityPage';
+import './App.css'
+
 
 function App() {
   return (
     <>
-<routes>
-  <route path="/" element ={<HomePage />} />
-  <route path="/signup" element ={<SignupPage />} />
-  <route path="/login" element ={<LoginPage />} />
-  <route path="/journal" element ={<JournalPage />} />
-  <route path="/statistics" element ={<StatisticPage />} />
-  <route path="/energylevel" element ={<EnergyLevelPage />} />
-  <route path="/sleepquality" element = {<SleepQualityPage />} />
-  <route path="/todolist" element ={<TodoPage />} />
-  <route path="*" element ={<Error />} />
-</routes>
+<Routes>
+  <Route path="/" element ={<HomePage />} />
+  <Route path="/signup" element ={<SignupPage />} />
+  <Route path="/loginpage" element ={<LoginPage />} />
+  <Route path="/journal" element ={<JournalPage />} />
+  <Route path="/statistics" element ={<StatisticPage />} />
+{/*  <route path="/energylevel" element ={<EnergyLevelPage />} /> */}
+  <Route path="/sleepquality" element = {<SleepQualityPage />} />
+  <Route path="/todolist" element ={<ToDoPage />} />
+  <Route path="*" element ={<Error />} />
+</Routes>
     </>
   );
 }

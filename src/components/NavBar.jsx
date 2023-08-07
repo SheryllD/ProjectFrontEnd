@@ -1,17 +1,21 @@
+/*import react from 'react'
 import { Link } from "react-router-dom";
  
-function Navbar() {
-  return (
-    <nav>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
- 
-      <Link to="/projects">
-        <button>Projects</button>
-      </Link>
-    </nav>
-  );
+class Navbar extends react.Component {
+  render() {
+    return (
+      <nav>
+        <p>React - compontents & Props</p>
+      </nav>
+    )
+  }
 }
- 
-export default Navbar;
+*/
+
+import React from 'react'
+
+export default function NavBar() {
+  return (
+    <div>NavBar</div>
+  )
+}

@@ -1,13 +1,15 @@
-import React, {useEffect, useState} from "react";
-import { Link } from 'react-router-dom'; 
-/* import here everything */
+import React from "react"; 
+import "../App.css"; 
+import {Link} from "react-router-dom"; 
 
 function HomePage() {
-    return (
-      <div>
-        <h1>Home Page</h1>
-      </div>
-    );
-  }
-   
-  export default HomePage;
+  return (
+    <>
+    <div className="HomepageContainer">
+      <p>Hello</p>
+    </div>
+    </>
+  )
+}
+
+export default HomePage;

@@ -1,7 +1,7 @@
-/*import {useState} from 'react'
+import React from 'react'
 
-const SignupForm = ({ onSubmit, user }) => {
-    const [name, setName] = useState(user?.name || '')
-    const [email, setEmail] = useState((typeof ))
+export default function SignUpForm() {
+  return (
+    <div>SignUpForm</div>
+  )
 }
-*/
