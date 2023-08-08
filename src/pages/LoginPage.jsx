@@ -1,18 +1,15 @@
 import React, {useState} from "react"; 
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+const api_url = "http://localhost:5173";
 
-const handleLoginSubmit = async (event) => {
-    event.preventDefault()
-
-}
-
-export const LoginPage = (props) => {
+ function LoginPage () {
     const [email, setEmail] = useState(""); 
     const [password, setPassword] = useState(""); 
+    const navigate = useNavigate(); 
 
-    const handleLoginSubmit = (event) => {
-        event.preventDefault()
+    const handleLoginSubmit = (e) => {
+        e.preventDefault()
         console.log(email)
     }
     return (
@@ -44,7 +41,7 @@ export const LoginPage = (props) => {
            </div>
            <div>
            <Link to="/registerpage">
-           <button className="link-button"> Don't have an account? Register here.</button> 
+           <button className="link-button"> Create an account.</button> 
            </Link>
         </div>
         </>
