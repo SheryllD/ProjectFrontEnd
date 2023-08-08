@@ -1,17 +1,27 @@
-import React, {useState} from "react"; 
+import React, {useState, createContext} from "react"; 
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-const api_url = "http://localhost:5173";
+const api_url = "http://localhost:5174"; //server url
 
  function LoginPage () {
     const [email, setEmail] = useState(""); 
     const [password, setPassword] = useState(""); 
+   
     const navigate = useNavigate(); 
 
-    const handleLoginSubmit = (e) => {
-        e.preventDefault()
+    const handleLoginSubmit = async (e) => {
+        e.preventDefault();
         console.log(email)
+        ///here axios 
+    try {
+        const res = await axios.post(`${api_url}/auth/login`, { email, password });
+        console.log("This is your signup response"); 
+        
+        navigate("/loginpage"); 
+    }    catch (err) {
+        console.log(err); 
     }
+    }; 
     return (
         <>
         <div className="login-container">

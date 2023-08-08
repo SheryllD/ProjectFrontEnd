@@ -1,21 +1,48 @@
-/*import react from 'react'
 import { Link } from "react-router-dom";
- 
-class Navbar extends react.Component {
-  render() {
-    return (
-      <nav>
-        <p>React - compontents & Props</p>
-      </nav>
-    )
-  }
-}
-*/
+import { useContext } from "react";                    
+import { AuthContext } from "../context/auth.context";  
+import './App.css'; 
 
-import React from 'react'
+const api_url = import.meta.env.VITE_API_URL;
+//import React from 'react'
 
-export default function NavBar() {
+function NavBar() {
+  const { isLoggedIn, User } = useContext(AuthContext); 
+  
   return (
-    <div>NavBar</div>
-  )
+    <nav className="top-nav-bar">
+      <Link to={"/homepage"}>
+        <button>Home</button>
+      </Link> 
+      {/*    UPDATE     */}
+      {isLoggedIn && (
+        <>
+        <Link to={"/todopage"}>
+        <button> Tasks </button>
+        </Link>
+        <Link to={"/journalpage"}>
+        <button> Journal </button>
+        </Link>
+        <Link to={"/energylevelpage"}>
+        <button> Energy Level </button>
+        </Link>
+        <Link to={"/sleepqualitypage"}>
+        <button> Sleep Quality </button>
+        </Link>
+        <Link to={"/statisticpage"}>
+        <button> Dashboard </button>
+        </Link>
+        </>
+      )}
+ 
+      {!isLoggedIn && (
+        <>
+          <Link to="/signup"> <button>Sign Up</button> </Link>
+          <Link to="/login"> <button>Login</button> </Link>
+        </>
+      )}
+    </nav>
+  );
 }
+
+export default NavBar; 

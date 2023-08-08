@@ -11,7 +11,7 @@ import StatisticPage from "./pages/StatisticPage";
 import ToDoPage from "./pages/ToDoPage";
 import EnergyLevelPage from "./pages/EnergyLevelPage"; 
 import Error from "./pages/ErrorPage"; 
-import Navbar from "./components/Navbar"; 
+//import NavBar from './components/Navbar';
 import SleepQualityPage from './pages/SleepQualityPage';
 import './App.css'; 
 

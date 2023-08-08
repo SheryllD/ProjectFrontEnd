@@ -1,16 +1,17 @@
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext} from "react";
 import axios from "axios";
-import { fetchOne } from "../functions/api.calls";
+import { fetchOne } from "../API/apicalls";
 const api_url = import.meta.env.VITE_API_URL;
+
 const AuthContext = createContext();
 
-function AuthContextWrapper({ children }) {
+function AuthContextWrapper ({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [userUpdate, setUserUpdate] = useState(false);
 
-  /* FUNC AUTHENTICATION */
+  /* FUNCTION AUTHENTICATION */
   const userAuthentication = async () => {
     const token = localStorage.getItem("authToken");
 
@@ -20,12 +21,12 @@ function AuthContextWrapper({ children }) {
           headers: { authorization: `Bearer ${token}` },
         });
 
-        // authorization successful
+        // authorization success
         setUser(data.currentUser);
         setIsLoading(false);
         setIsLoggedIn(true);
-      } catch (error) {
-        console.log("authorization failed: ", error);
+      } catch (err) {
+        console.log("authorization failed: ", err);
         setUser(null);
         setIsLoading(false);
         setIsLoggedIn(false);
@@ -63,4 +64,4 @@ function AuthContextWrapper({ children }) {
   );
 }
 
-export { AuthContext, AuthContextWrapper };
+export default { AuthProviderWrapper, AuthContext };

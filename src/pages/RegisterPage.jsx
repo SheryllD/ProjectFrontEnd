@@ -1,20 +1,23 @@
 import axios from 'axios';
 import React, {useState} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 
-export const RegisterPage = (props) => {
+function RegisterPage (props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(undefined); 
 
   const navigate = useNavigate(); 
-//http://http://localhost:5173/registerpage
-//handleRegisterSubmit
+
+  const handleEmail = (e) => setEmail(e.target.value);
+ // const handlePassword = (e) => setPassword(e.target.value);
+  const handleName = (e) => setName(e.target.value);
   
-const handleSignup = async (e) => {
+const handleSignupSubmit = async (e) => {
   e.preventDefault();
   try {
-    await axios.post("http://localhost:5005/auth/signup", {
+    await axios.post(`${api_url}/auth/signup`, {
       name,
       email,
       password,
@@ -29,15 +32,16 @@ const handleSignup = async (e) => {
       <>
       <div className='register-container'>
         <h1>Sign up</h1>
-        <form onSubmit={handleSignup} className='register-form'> 
+        <form onSubmit={handleSignupSubmit} className='register-form'> 
         <label>Name:</label>
         <input 
         type="name"
         placeholder='Full Name'
         name='name'
         value={name}
-        onChange={(e) => {setName(e.target.value);
-        }}
+        onChange={handleName}
+       /* onChange={(e) => {setName(e.target.value);
+        }} */
         />
       <label>E-mail:</label>
       <input 
@@ -47,8 +51,9 @@ const handleSignup = async (e) => {
       id='email' 
       value={email}
       required
-      onChange={(e) => {setEmail(e.target.value);
-      }} 
+      onChange={handleEmail}
+      /*onChange={(e) => {setEmail(e.target.value);
+      }}*/ 
       />
       <label>Password:</label>
       <input type="password" 
@@ -57,16 +62,16 @@ const handleSignup = async (e) => {
       name='password' 
       value={password}
       required
-      onChange={(e) => {setPassword(e.target.value);
-      }} 
+      onChange={handlePassword}
+      /*onChange={(e) => {setPassword(e.target.value);
+      }} */
       /> 
-      <button className="done-btn" type="submit">Done </button>      
+      <button className="done-btn" type="submit"> Done </button>      
         </form>  
- <button className="link-btn" onClick={() => props.onFormSwitch('/loginpage')}>Already have an account? Login here.</button>
+ {/*<button className="link-btn" onClick={() => props.onFormSwitch('/loginpage')}>Already have an account? Login here.</button> */}
+ <p>Already have account?</p>
+      <Link to={"/loginpage"}> Login</Link>
  </div>
-
- 
-
       </>
     );
   };
