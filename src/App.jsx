@@ -14,11 +14,14 @@ import Error from "./pages/ErrorPage";
 //import NavBar from './components/Navbar';
 import SleepQualityPage from './pages/SleepQualityPage';
 import './App.css'; 
+import NavBar from './components/Navbar';
 
 function App() {
   const [currentForm, setCurrentForm] = useState('login'); 
   return (
     <>
+    <div className='App'>
+      <NavBar/>
 <Routes>
   <Route path="/homepage" element ={<HomePage />} />
   <Route path="/registerpage" element ={<RegisterPage />} />
@@ -30,6 +33,7 @@ function App() {
   <Route path="/todopage" element ={<ToDoPage />} />
   <Route path="*" element ={<Error />} />
 </Routes>
+</div>
     </>
   );
 }

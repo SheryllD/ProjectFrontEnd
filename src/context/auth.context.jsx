@@ -1,10 +1,10 @@
 import { useState, useEffect, createContext} from "react";
 import axios from "axios";
 import { fetchOne } from "../API/apicalls";
-const api_url = import.meta.env.VITE_API_URL;
+const api_url = "http://localhost:5005"
 const AuthContext = createContext();
-
-function AuthContextWrapper ({ children }) {
+//
+function AuthProviderWrapper ({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
@@ -51,9 +51,9 @@ function AuthContextWrapper ({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        isLoggedIn,
         user,
         isLoading,
-        isLoggedIn,
         userAuthentication,
         setUserUpdate
       }}
@@ -63,4 +63,4 @@ function AuthContextWrapper ({ children }) {
   );
 }
 
-export default { AuthContextWrapper, AuthContext };
+export { AuthProviderWrapper, AuthContext };

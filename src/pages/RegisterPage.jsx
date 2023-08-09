@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useState} from 'react'
 import { Link,  useNavigate } from 'react-router-dom';
+const api_url = "http://localhost:5005"
 
 function RegisterPage (props) {
   const [name, setName] = useState("");
@@ -11,22 +12,21 @@ function RegisterPage (props) {
   const navigate = useNavigate(); 
 
   const handleEmail = (e) => setEmail(e.target.value);
- // const handlePassword = (e) => setPassword(e.target.value);
+  const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
   
 const handleSignupSubmit = async (e) => {
   e.preventDefault();
-  try {
-    await axios.post(`${api_url}/auth/signup`, {
-      name,
-      email,
-      password,
-    });
-    navigate("/loginpage");
-  } catch (error) {
-    console.log(error);
-  }
-};
+  const requestBody = {email, password, name}; 
+    await axios.post(`${api_url}/auth/signup`, requestBody)
+    .then((response) => {
+      navigate("/loginpage");
+    })
+    .catch ((error) => {
+      const errorDescription = error.response.data.message; 
+      setErrorMessage(errorDescription);
+  })
+}; 
 
     return (
       <>
@@ -68,6 +68,7 @@ const handleSignupSubmit = async (e) => {
       /> 
       <button className="done-btn" type="submit"> Done </button>      
         </form>  
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
  {/*<button className="link-btn" onClick={() => props.onFormSwitch('/loginpage')}>Already have an account? Login here.</button> */}
  <p>Already have account?</p>
       <Link to={"/loginpage"}> Login</Link>

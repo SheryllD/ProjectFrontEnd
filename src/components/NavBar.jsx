@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";                    
 import { AuthContext } from "../context/auth.context";  
-import './App.css'; 
 
-const api_url = import.meta.env.VITE_API_URL;
+//const api_url = import.meta.env.VITE_API_URL;
 //import React from 'react'
 
 function NavBar() {
@@ -32,6 +31,7 @@ function NavBar() {
         <Link to={"/statisticpage"}>
         <button> Dashboard </button>
         </Link>
+        <button> logout </button>
         </>
       )}
  

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { AuthContextWrapper } from "./context/auth.context";
+import { AuthProviderWrapper } from "./context/auth.context.jsx";
 import { BrowserRouter } from "react-router-dom";
  
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -10,9 +10,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <AuthContextWrapper>
+    <AuthProviderWrapper>
     <App />
-    </AuthContextWrapper>
+    </AuthProviderWrapper>
     </BrowserRouter>
   </React.StrictMode>
 );

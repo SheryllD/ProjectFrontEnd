@@ -6,8 +6,12 @@ const api_url = "http://localhost:5174"; //server url
  function LoginPage () {
     const [email, setEmail] = useState(""); 
     const [password, setPassword] = useState(""); 
+    const [errorMessage, setErrorMessage] = useState(undefined); 
    
     const navigate = useNavigate(); 
+
+    const handleEmail = (e) => setEmail(e.target.value); 
+    const handlePassword = (e) => setPassword(e.target.value); 
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
@@ -36,7 +40,7 @@ const api_url = "http://localhost:5174"; //server url
              name="email" 
              id="email" 
              value={email}
-             onChange={(e) => setEmail(e.target.value)}/>
+             onChange={handleEmail}/>
           
            <label htmlFor="Password">Password:</label>
            <input 
@@ -45,9 +49,10 @@ const api_url = "http://localhost:5174"; //server url
            id="password" 
            name="password" 
            value={password}
-           onChange={(e) => setPassword(e.target.value)} />          
+           onChange={handlePassword} />        
           <button type="submit">Log in</button>
            </form>
+           {errorMessage && <p className="error-message">{errorMessage}</p>}
            </div>
            <div>
            <Link to="/registerpage">
@@ -58,4 +63,4 @@ const api_url = "http://localhost:5174"; //server url
     )
 }
 
-export default LoginPage
+export default LoginPage; 
