@@ -15,7 +15,7 @@ import SleepQualityPage from './pages/SleepQualityPage';
 import Errorpage from "./pages/ErrorPage"; 
 import './App.css'; 
 
-import NavBar from './components/Navbar';
+import NavBar from './components/NavBar';
 
 function App() {
   const [currentForm, setCurrentForm] = useState('login'); 
@@ -39,8 +39,7 @@ function App() {
   <Route path="/sleepquality" element = {<SleepQualityPage />} />
 
   <Route path="/todo" element ={<ToDoPage />} />
-  <Route path="/todo/:toDoId" element ={<ToDoPage />} />
-
+ 
   <Route path="*" element ={<Error />} />
 </Routes>
 </div>

@@ -1,6 +1,16 @@
 import axios from 'axios';
 import { useState } from 'react';
 
+import React from 'react'
+
+export default function addtodo() {
+  return (
+    <div>addtodo</div>
+  )
+}
+
+
+/*
 const API_URL = "http://localhost:5005";
 
 function AddToDo(props) {
@@ -54,4 +64,6 @@ function AddToDo(props) {
     </div>
   )
 }
+
 export default AddToDo; 
+*/

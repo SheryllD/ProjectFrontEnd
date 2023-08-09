@@ -26,7 +26,7 @@ const api_url = "http://localhost:5005"; //server url
           storeToken(response.data.authToken); 
           userAuthentication(); 
 
-          navigate('/');                                  
+          navigate('/homepage');                                  
         })
         .catch((error) => {
           //const errorDescription = error.response.data.message;

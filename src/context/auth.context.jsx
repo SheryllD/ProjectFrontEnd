@@ -42,6 +42,15 @@ localStorage.setItem("authToken", token)
     }
   };
 
+  const removeToken = () => {
+    localStorage.removeItem("authToken")
+  }
+
+  const logoutUser = () => {
+    removeToken(); 
+    userAuthentication(); 
+  }
+
   useEffect(() => {
     userAuthentication();
   }, []);
@@ -60,7 +69,8 @@ localStorage.setItem("authToken", token)
         user,
         isLoading,
         userAuthentication,
-        setUserUpdate
+        setUserUpdate, 
+        logoutUser
       }}
     >
       {children}
