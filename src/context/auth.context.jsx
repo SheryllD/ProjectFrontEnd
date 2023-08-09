@@ -10,6 +10,10 @@ function AuthProviderWrapper ({ children }) {
   const [user, setUser] = useState(null);
   const [userUpdate, setUserUpdate] = useState(false);
 
+  function storeToken (token) {
+localStorage.setItem("authToken", token)
+  }
+
   /* FUNCTION AUTHENTICATION */
   const userAuthentication = async () => {
     const token = localStorage.getItem("authToken");
@@ -51,6 +55,7 @@ function AuthProviderWrapper ({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        storeToken,
         isLoggedIn,
         user,
         isLoading,

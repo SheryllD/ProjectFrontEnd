@@ -1,74 +1,53 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 import React from 'react'
 
-export const ToDoPage = () => {
-
+function ToDoPage() {
   return (
-    <>
     <div>ToDoPage</div>
-    </>
   )
 }
+
 export default ToDoPage; 
 
 /*
-// TodoList.js
-import React, { useState } from 'react';
-import './App.css'; 
+import AddToDo from "../components/AddToDo";
+import ProjectCard from "../components/ToDoCard";
 
-const TodoPage = () => {
-  const [task, setTask] = useState('');
-  const [tasks, setTasks] = useState([]);
+const API_URL = "http://localhost:5005";
 
-  const handleAddTask = () => {
-    if (task.trim() !== '') {
-      setTasks([...tasks, { id: Date.now(), text: task, completed: false }]);
-      setTask('');
-    }
+function ProjectListPage() {
+  const [projects, setProjects] = useState([]);
+
+  const getAllProjects = () => {
+    // Get the token from the localStorage
+    const storedToken = localStorage.getItem("authToken");
+
+    // Send the token through the request "Authorization" Headers
+    axios
+      .get(`${API_URL}/api/projects`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setProjects(response.data))
+      .catch((error) => console.log(error));
   };
 
-  const handleRemoveTask = (taskId) => {
-    setTasks(tasks.filter((task) => task.id !== taskId));
-  };
-
-  const handleToggleCompleted = (taskId) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === taskId ? { ...task, completed: !task.completed } : task
-      )
-    );
-  };
+  useEffect(() => {
+    getAllProjects();
+  }, []);
 
   return (
-    <div>
-      <h1>Todo List</h1>
-      <div>
-        <input
-          type="text"
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
-          placeholder="Enter a new task..."
-        />
-        <button onClick={handleAddTask}>Add Task</button>
-      </div>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id}>
-            <span
-              style={{
-                textDecoration: task.completed ? 'line-through' : 'none',
-              }}
-            >
-              {task.text}
-            </span>
-            <button onClick={() => handleToggleCompleted(task.id)}>
-              {task.completed ? 'Undo' : 'Complete'}
-            </button>
-            <button onClick={() => handleRemoveTask(task.id)}>Remove</button>
-          </li>
-        ))}
-      </ul>
+    <div className="ProjectListPage">
+      <AddToDo refreshProjects={getAllProjects} />
+
+      {projects.map((project) => (
+        <ProjectCard key={project._id} {...project} />
+      ))}
     </div>
   );
-};
+}
 
-export default TodoPage*/
+export default ToDoPage;
+
+*/

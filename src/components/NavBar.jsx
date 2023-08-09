@@ -6,7 +6,7 @@ import { AuthContext } from "../context/auth.context";
 //import React from 'react'
 
 function NavBar() {
-  const { isLoggedIn, User } = useContext(AuthContext); 
+  const { isLoggedIn, User, logoutUser } = useContext(AuthContext); 
   
   return (
     <nav className="top-nav-bar">
@@ -16,28 +16,30 @@ function NavBar() {
       {/*    UPDATE     */}
       {isLoggedIn && (
         <>
-        <Link to={"/todopage"}>
+        <Link to={"/todo"}>
         <button> Tasks </button>
         </Link>
-        <Link to={"/journalpage"}>
+        <Link to={"/journal"}>
         <button> Journal </button>
         </Link>
-        <Link to={"/energylevelpage"}>
+        <Link to={"/energylevel"}>
         <button> Energy Level </button>
         </Link>
-        <Link to={"/sleepqualitypage"}>
+        <Link to={"/sleepquality"}>
         <button> Sleep Quality </button>
         </Link>
-        <Link to={"/statisticpage"}>
+        <Link to={"/statistic"}>
         <button> Dashboard </button>
         </Link>
-        <button> logout </button>
+
+        <button onClick={logoutUser}> logout </button>
+        <span>{User && User.name}</span>
         </>
       )}
  
       {!isLoggedIn && (
         <>
-          <Link to="/signup"> <button>Sign Up</button> </Link>
+          <Link to="/register"> <button>Sign Up</button> </Link>
           <Link to="/login"> <button>Login</button> </Link>
         </>
       )}

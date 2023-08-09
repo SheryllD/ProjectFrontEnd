@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, {useState} from 'react'
+import {useState} from 'react'
 import { Link,  useNavigate } from 'react-router-dom';
 const api_url = "http://localhost:5005"
 
@@ -15,24 +15,24 @@ function RegisterPage (props) {
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
   
-const handleSignupSubmit = async (e) => {
+const handleSignupSubmit = (e) => {
   e.preventDefault();
   const requestBody = {email, password, name}; 
-    await axios.post(`${api_url}/auth/signup`, requestBody)
+    axios.post(`${api_url}/auth/signup`, requestBody)
     .then((response) => {
-      navigate("/loginpage");
+      navigate("/login");
     })
     .catch ((error) => {
       const errorDescription = error.response.data.message; 
       setErrorMessage(errorDescription);
   })
 }; 
-
     return (
       <>
       <div className='register-container'>
         <h1>Sign up</h1>
         <form onSubmit={handleSignupSubmit} className='register-form'> 
+        
         <label>Name:</label>
         <input 
         type="name"
@@ -40,9 +40,8 @@ const handleSignupSubmit = async (e) => {
         name='name'
         value={name}
         onChange={handleName}
-       /* onChange={(e) => {setName(e.target.value);
-        }} */
         />
+      
       <label>E-mail:</label>
       <input 
       type="email" 
@@ -52,9 +51,8 @@ const handleSignupSubmit = async (e) => {
       value={email}
       required
       onChange={handleEmail}
-      /*onChange={(e) => {setEmail(e.target.value);
-      }}*/ 
       />
+
       <label>Password:</label>
       <input type="password" 
       placeholder="*******" 
@@ -63,15 +61,12 @@ const handleSignupSubmit = async (e) => {
       value={password}
       required
       onChange={handlePassword}
-      /*onChange={(e) => {setPassword(e.target.value);
-      }} */
       /> 
-      <button className="done-btn" type="submit"> Done </button>      
+      <button className="done-btn" type="submit"> Submit </button>      
         </form>  
         {errorMessage && <p className="error-message">{errorMessage}</p>}
- {/*<button className="link-btn" onClick={() => props.onFormSwitch('/loginpage')}>Already have an account? Login here.</button> */}
  <p>Already have account?</p>
-      <Link to={"/loginpage"}> Login</Link>
+      <Link to={"/login"}> Login</Link>
  </div>
       </>
     );

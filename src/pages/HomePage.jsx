@@ -8,27 +8,27 @@ export const HomePage = (props) => {
     <div className="HomepageContainer">
       <h1>Welcome user</h1>
       <div>
-        <Link to="/todopage">
+        <Link to="/todo">
         <button> Tasks </button>
         </Link>
       </div>
       <div>
-        <Link to="/journalpage">
+        <Link to="/journal">
         <button> Journal </button>
         </Link>
       </div>
       <div>
-        <Link to="/energylevelpage">
+        <Link to="/energylevel">
         <button> Energy Level </button>
         </Link>
       </div>
       <div>
-        <Link to="/sleepqualitypage">
+        <Link to="/sleepquality">
         <button> Sleep Quality </button>
         </Link>
       </div>
       <div>
-        <Link to="/statisticpage">
+        <Link to="/statistic">
         <button> Dashboard </button>
         </Link>
       </div>
