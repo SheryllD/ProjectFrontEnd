@@ -1,5 +1,3 @@
-//import AddToDo from "../components/addtodo";
-//import ToDoCard from "../components/ToDoCard";
 import axios from "axios";
 
 import { useEffect, useState } from "react";
