@@ -5,20 +5,22 @@ const api_url = "http://localhost:5005";
 function JournalPage() {
   const [notes, setNotes] = useState([]);
   const [popupActive, setPopupActive] = useState(false);
-  const [newNotes, setNewNotes] = useState("");
-  const [updateNotes, setUpdateNotes] = useState("");
+  const [newNote, setNewNote] = useState("");
+  const [updateNote, setUpdateNote] = useState("");
   const [showInput, setShowInput] = useState(false);
 
-  const handleSubmitEdit = async (notesId) => {
+  const handleSubmitEdit = async (todoId) => {
     axios
-      .post(`${api_url}/notes/edit/${notesId}`, { updateNotes })
+      .post(`${api_url}/notes/edit/${todoId}`, { updateNote })
       .then((response) => {
         console.log("here is a response", response);
-        setNotes(response.data.Allnotes);
+        setNotes(response.data.AllNotes);
         setShowInput(false);
-        setUpdateNotes("");
+        setUpdateNote("");
+        // navigate("/todo");
       })
       .catch((err) => console.error("Error: ", err));
+    //await fetch(api_url + "/todo/edit/" + id).then((res) => res.json());
   };
 
   const handleSubmit = (e) => {
@@ -32,29 +34,29 @@ function JournalPage() {
     fetch(api_url + "/notes")
       .then((res) => res.json())
       .then((data) => {
-        console.log("here are all your notes", data);
-        setNotes(data);
+        console.log("here are all the notes", data);
+        setTodos(data);
       })
       .catch((err) => console.error("Error: ", err));
   };
 
-  const completenotes = async (id) => {
+  const completeNote = async (id) => {
     const data = await fetch(api_url + "/notes/complete/" + id).then((res) =>
       res.json()
     );
 
     setNotes((notes) =>
-      notes.map((notes) => {
-        if (notes._id === data._id) {
-          notes.complete = data.complete;
+      notes.map((note) => {
+        if (note._id === data._id) {
+          todo.complete = data.complete;
         }
 
-        return notes;
+        return note;
       })
     );
   };
 
-  const addnotes = async () => {
+  const addNote = async () => {
     const token = localStorage.getItem("authToken");
     const data = await fetch(api_url + "/notes/new", {
       method: "POST",
@@ -63,14 +65,14 @@ function JournalPage() {
         authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        text: newNotes,
+        text: newNote,
       }),
     }).then((res) => res.json());
 
     setNotes([...notes, data]);
 
     setPopupActive(false);
-    setNewNotes("");
+    setNewNote("");
   };
 
   const deleteNotes = (id) => {
@@ -78,26 +80,31 @@ function JournalPage() {
       .then((res) => res.json())
       .then((parsed) => setNotes(notes.filter((notes) => notes._id !== id)))
       .catch((err) => console.error("Error: ", err));
+
+    //setTodos(todos => todos.filter(todos => todos._id !== data.result._id));
   };
 
   return (
     <div className="App">
       <h1>Welcome</h1>
-      <h4>Your tasks</h4>
+      <h4>Thought of today: </h4>
 
       <div className="notes">
         {notes.length > 0 ? (
-          notes.map((notes) => (
-            <div key={notes._id}>
-              <div className={"notes" + (notes.complete ? " is-complete" : "")}>
+          notes.map((note) => (
+            <div key={note._id}>
+              <div
+                className={"note" + (note.complete ? " is-complete" : "")}
+                //onClick={() => completeTodo(todo._id)}
+              >
                 <div className="checkbox"></div>
-                <div className="text">{notes.text}</div>
+                <div className="text">{note.text}</div>
 
                 <button onClick={() => setShowInput(!showInput)}>Edit</button>
 
                 <div
-                  className="delete-notes"
-                  onClick={() => deleteNotes(notes._id)}
+                  className="delete-note"
+                  onClick={() => deleteNotes(note._id)}
                 >
                   x
                 </div>
@@ -106,12 +113,12 @@ function JournalPage() {
               {showInput ? (
                 <div>
                   <input
-                    value={updateNotes}
-                    onChange={(e) => setUpdateNotes(e.target.value)}
+                    value={updateNote}
+                    onChange={(e) => setUpdateNote(e.target.value)}
                   />
                   <button
                     onClick={() => {
-                      handleSubmitEdit(notes._id);
+                      handleSubmitEdit(note._id);
                     }}
                   >
                     {" "}
@@ -122,7 +129,7 @@ function JournalPage() {
             </div>
           ))
         ) : (
-          <p> Start Journaling</p>
+          <p> Start Journaling today!</p>
         )}
       </div>
       <div className="addPopup" onClick={() => setPopupActive(true)}>
@@ -134,15 +141,16 @@ function JournalPage() {
             X
           </div>
           <div className="content">
-            <h3>Add Task</h3>
+            <h3>ADD </h3>
             <input
               type="text"
-              className="add-notes-input"
-              onChange={(e) => setNewNotes(e.target.value)}
-              value={newNotes}
+              className="add-note-input"
+              onChange={(e) => setNewNote(e.target.value)}
+              value={newNote}
             />
-            <div className="button" onClick={addnotes}>
-              Create notes
+            <br></br>
+            <div className="button" onClick={addNote}>
+              Create Note
             </div>
           </div>
         </div>
@@ -152,5 +160,5 @@ function JournalPage() {
     </div>
   );
 }
-//test
+
 export default JournalPage;
