@@ -39,7 +39,12 @@ function App() {
   <Route path="/sleepquality" element = {<SleepQualityPage />} />
 
   <Route path="/todo" element ={<ToDoPage />} />
- 
+ {/* <Route path="/todo/:todoId" element ={<ToDoPage />} />*/}
+ {/* <Route path="/todo/new" element ={<ToDoPage />} />*/}
+ {/* <Route path="/todo/delete/:todoId" element ={<ToDoPage />} />*/}
+  {/* <Route path="/todo/complete/:todoId" element ={<ToDoPage />} />*/}
+  {/* <Route path="/todo/update/:todoId" element ={<ToDoPage />} />*/}
+
   <Route path="*" element ={<Error />} />
 </Routes>
 </div>

@@ -2,7 +2,10 @@ import React from 'react'
 
 export const SleepQualityPage = () => {
   return (
-    <div>SleepQualityPage</div>
+    <div>
+
+
+    </div>
   )
 
 }
