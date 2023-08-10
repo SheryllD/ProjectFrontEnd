@@ -87,7 +87,7 @@ function ToDoPage() {
   return (
     <div className="App">
       <h1>Welcome</h1>
-      <h4>Your tasks</h4>
+      <h4>Things I need to do today</h4>
 
       <div className="todos">
         {todos.length > 0 ? (
@@ -141,7 +141,7 @@ function ToDoPage() {
             X
           </div>
           <div className="content">
-            <h3>Add Task</h3>
+            <h3>MY TO DO:</h3>
             <input
               type="text"
               className="add-todo-input"
@@ -149,7 +149,7 @@ function ToDoPage() {
               value={newTodo}
             />
             <div className="button" onClick={addTodo}>
-              Create Todo
+              Create
             </div>
           </div>
         </div>

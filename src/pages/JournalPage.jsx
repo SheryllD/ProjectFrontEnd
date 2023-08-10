@@ -87,7 +87,7 @@ function JournalPage() {
   return (
     <div className="App">
       <h1>Welcome</h1>
-      <h4>Thought of today: </h4>
+      <h4>Notes: </h4>
 
       <div className="notes">
         {notes.length > 0 ? (
@@ -141,7 +141,7 @@ function JournalPage() {
             X
           </div>
           <div className="content">
-            <h3>ADD </h3>
+            <h3>Thought of Today </h3>
             <input
               type="text"
               className="add-note-input"
@@ -150,7 +150,7 @@ function JournalPage() {
             />
             <br></br>
             <div className="button" onClick={addNote}>
-              Create Note
+              Create
             </div>
           </div>
         </div>
