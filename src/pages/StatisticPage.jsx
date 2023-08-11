@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
 
-export default function StatisticPage() {
-  return (
-    <div>StatisticPage</div>
-  )
+function StatisticPage() {
+  return <div>StatisticPage</div>;
 }
+export default StatisticPage;

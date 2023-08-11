@@ -1,35 +1,38 @@
 body {
-  text-align: center; 
-  display: flex; 
+  text-align: center;
+  display: flex;
   min-height: 100vh;
   justify-content: center;
   background-color: rgb(255, 250, 250);
 }
 
-.login-form{
+.login-form {
   text-align: center;
   flex-direction: column;
 }
 
-.login-container, .register-container {
+.login-container .register-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 label {
   text-align: center;
-  padding: 0,25 rem 0; 
+  padding: 0, 25 rem 0;
 }
 
 input {
-  margin: 0,5rem 0; 
+  margin: 0, 5rem 0;
   text-align: left;
 }
 
 .button {
-  border: none; 
+  border: none;
   background-color: rgb(237, 231, 231);
-  padding: 20px
+  padding: 20px;
 }
 
 .link-btn {
