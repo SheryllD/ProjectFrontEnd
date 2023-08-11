@@ -87,9 +87,9 @@ function ToDoPage() {
   return (
     <div className="App">
       <h1>Welcome</h1>
-      <h4>TODO List </h4>
+      <h4>Things To Do Today:</h4>
 
-      <div className="todos">
+      <div className="todo">
         {todos.length > 0 ? (
           todos.map((todo) => (
             <div key={todo._id}>
@@ -100,12 +100,14 @@ function ToDoPage() {
                 <div className="checkbox"></div>
                 <div className="text">{todo.text}</div>
 
-                <button onClick={() => setShowInput(!showInput)}>Edit</button>
-
-                <div
-                  className="delete-todo"
-                  onClick={() => deleteTodos(todo._id)}
+                <button
+                  className="edit"
+                  onClick={() => setShowInput(!showInput)}
                 >
+                  Edit
+                </button>
+
+                <div className="delete" onClick={() => deleteTodos(todo._id)}>
                   x
                 </div>
               </div>
@@ -117,6 +119,7 @@ function ToDoPage() {
                     onChange={(e) => setUpdateTodo(e.target.value)}
                   />
                   <button
+                    className="edit"
                     onClick={() => {
                       handleSubmitEdit(todo._id);
                     }}
@@ -144,7 +147,7 @@ function ToDoPage() {
             <h3>Tasks for today:</h3>
             <input
               type="text"
-              className="add-todo-input"
+              className="add-input"
               onChange={(e) => setNewTodo(e.target.value)}
               value={newTodo}
             />

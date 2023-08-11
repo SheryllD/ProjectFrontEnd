@@ -19,9 +19,12 @@
 body {
   background-color: var(--dark-alt);
   color: var(--light);
+  background-color: var(--dark-alt);
+  color: var(--light);
 }
 
 .App {
+  padding: 32px;
   padding: 32px;
 }
 

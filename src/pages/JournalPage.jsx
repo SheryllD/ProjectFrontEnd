@@ -35,7 +35,7 @@ function JournalPage() {
       .then((res) => res.json())
       .then((data) => {
         console.log("here are all the notes", data);
-        setTodos(data);
+        setNotes(data);
       })
       .catch((err) => console.error("Error: ", err));
   };
@@ -87,9 +87,9 @@ function JournalPage() {
   return (
     <div className="App">
       <h1>Welcome</h1>
-      <h4>Thought of today: </h4>
+      <h4>Notes: </h4>
 
-      <div className="notes">
+      <div className="Notes">
         {notes.length > 0 ? (
           notes.map((note) => (
             <div key={note._id}>
@@ -100,12 +100,14 @@ function JournalPage() {
                 <div className="checkbox"></div>
                 <div className="text">{note.text}</div>
 
-                <button onClick={() => setShowInput(!showInput)}>Edit</button>
-
-                <div
-                  className="delete-note"
-                  onClick={() => deleteNotes(note._id)}
+                <button
+                  className="edit"
+                  onClick={() => setShowInput(!showInput)}
                 >
+                  Edit
+                </button>
+
+                <div className="delete" onClick={() => deleteNotes(note._id)}>
                   x
                 </div>
               </div>
@@ -129,22 +131,22 @@ function JournalPage() {
             </div>
           ))
         ) : (
-          <p> Start Journaling today!</p>
+          <p> Start Journaling Today!</p>
         )}
       </div>
       <div className="addPopup" onClick={() => setPopupActive(true)}>
         +
       </div>
       {popupActive ? (
-        <div className="popup">
+        <div className="note-popup">
           <div className="closePopup" onClick={() => setPopupActive(false)}>
             X
           </div>
           <div className="content">
-            <h3>Thought of Today: </h3>
+            <h3>Thought of Today </h3>
             <input
               type="text"
-              className="add-note-input"
+              className="add-input"
               onChange={(e) => setNewNote(e.target.value)}
               value={newNote}
             />
