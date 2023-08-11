@@ -17,10 +17,8 @@ function JournalPage() {
         setNotes(response.data.AllNotes);
         setShowInput(false);
         setUpdateNote("");
-        // navigate("/todo");
       })
       .catch((err) => console.error("Error: ", err));
-    //await fetch(api_url + "/todo/edit/" + id).then((res) => res.json());
   };
 
   const handleSubmit = (e) => {
@@ -119,6 +117,7 @@ function JournalPage() {
                     onChange={(e) => setUpdateNote(e.target.value)}
                   />
                   <button
+                    className="edit"
                     onClick={() => {
                       handleSubmitEdit(note._id);
                     }}
@@ -138,7 +137,7 @@ function JournalPage() {
         +
       </div>
       {popupActive ? (
-        <div className="note-popup">
+        <div className="popup">
           <div className="closePopup" onClick={() => setPopupActive(false)}>
             X
           </div>
