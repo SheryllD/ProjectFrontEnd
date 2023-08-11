@@ -89,7 +89,7 @@ function ToDoPage() {
       <h1>Welcome</h1>
       <h4>Things I need to do today</h4>
 
-      <div className="todos">
+      <div className="todo">
         {todos.length > 0 ? (
           todos.map((todo) => (
             <div key={todo._id}>
@@ -102,10 +102,7 @@ function ToDoPage() {
 
                 <button onClick={() => setShowInput(!showInput)}>Edit</button>
 
-                <div
-                  className="delete-todo"
-                  onClick={() => deleteTodos(todo._id)}
-                >
+                <div className="delete" onClick={() => deleteTodos(todo._id)}>
                   x
                 </div>
               </div>
@@ -117,6 +114,7 @@ function ToDoPage() {
                     onChange={(e) => setUpdateTodo(e.target.value)}
                   />
                   <button
+                    className="edit"
                     onClick={() => {
                       handleSubmitEdit(todo._id);
                     }}
@@ -144,7 +142,7 @@ function ToDoPage() {
             <h3>MY TO DO:</h3>
             <input
               type="text"
-              className="add-todo-input"
+              className="add-input"
               onChange={(e) => setNewTodo(e.target.value)}
               value={newTodo}
             />
